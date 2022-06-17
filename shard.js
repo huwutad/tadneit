@@ -1,6 +1,7 @@
 const { ShardingManager } = require('discord.js');
 require('dotenv').config()
-
+const host = require('./host');
+host()
 let manager = new ShardingManager('./index.js', {
   token: process.env.token,
   totalShards: 10,
