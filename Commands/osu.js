@@ -6,7 +6,7 @@ const name = 'osu'
 module.exports = {
     name: 'osu',
     category: 'Osu!',
-    description: 'Tìm thông tin của bạn trên osu!',
+    description: 'Tìm thông tin của bạn trên osu! 🎶',
     options: [
         {
             name: 'name',

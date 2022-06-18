@@ -10,6 +10,7 @@
     "discord.js": "^13.7.0",
     "distube": "^3.3.4",
     "dotenv": "^16.0.1",
+    "express": "^4.18.1",
     "ffmpeg-static": "^4.4.1",
     "fs": "^0.0.1-security",
     "genius-lyrics": "^4.3.8",
@@ -24,15 +25,24 @@
     "ytdl-core": "^4.11.0",
     "ytpl": "^2.3.0",
     "ytsr": "^3.8.0"
-  }
-  "name": "new-folder",
+  },
+  "name": "bot-test",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node shard"
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hUwUtao1/tadneit.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hUwUtao1/tadneit/issues"
+  },
+  "homepage": "https://github.com/hUwUtao1/tadneit#readme",
+  "description": ""
 }

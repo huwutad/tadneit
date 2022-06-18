@@ -5,7 +5,7 @@ module.exports = {
 	async execute(client) {
 		const activities_list = [
 			'.',
-				`${client.guilds.cache.size} servers  | ${client.shard.ids} shards`,
+				`${client.guilds.cache.size} servers  `,
 				//`Nếu tui có lỗi thì kêu ông hUwUtao#8701 nhé! 🐛| ${config.prefix}help`,
 				//`Tui đang nằm trong ${client.guilds.cache.size} server ✨ | ${config.prefix}help`
 			]

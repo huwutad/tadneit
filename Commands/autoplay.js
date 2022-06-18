@@ -14,7 +14,7 @@ module.exports = {
             .setDescription(`\`🚫\`| ${error}`)
             interaction.reply({embeds: [lomao], ephemeral: true})
         }
-    function success(success) {
+        function success(success) {
             const thanhcong = new MessageEmbed()
             .setColor('GREEN')
             .setDescription(`\`✅\` | ${success}`)

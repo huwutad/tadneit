@@ -12,7 +12,7 @@ module.exports = {
     function error(error) {
         const lomao = new MessageEmbed()
         .setColor('RED')
-        .setDescription(`\`❌\` | ${error}`)
+        .setDescription(`\`🚫\` | ${error}`)
         interaction.reply({embeds: [lomao], ephemeral: true})
     }
 
