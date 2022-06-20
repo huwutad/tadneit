@@ -1,5 +1,10 @@
-const Keyv = require('keyv');
+const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
-const db = new Keyv(process.env.MONGODB)
+const url = process.env.MONGODB
+const db = new MongoClient(url, { useNewUrlParser: true});
+db.connect((err, db) => {
+    if (err) throw err;
+    console.log('[CONNECT] Kết nối thành công đến MongoDB');
+})
 
 module.exports = db;

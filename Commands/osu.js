@@ -12,10 +12,16 @@ module.exports = {
             name: 'name',
             description: 'Tên của bạn trên osu! Bancho server',
             type: 'STRING',
-            required: true,
+            required: false,
         }
     ],
-    run: async (client, interaction) => { 
+    run: async (client, interaction, db) => {
+        let dbo = db.db("osu");
+        dbo.collection("user").findOne({}, function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            db.close();
+          });
         console.log(`[USED] ${interaction.user.username} đã sử dụng ${name}`)
             const id = interaction.options.getString('name');
             await auth.login(process.env.OSUID, process.env.OSU)     
@@ -43,7 +49,7 @@ module.exports = {
             .setAuthor({ name:`${mode} Profile của ${user.username}`, iconURL: 'https://cdn.discordapp.com/emojis/967444692369293313.webp?size=80&quality=lossless', url:`https://osu.ppy.sh/users/${user.id}`})
             .setThumbnail(user.avatar_url)
             .setColor(`RANDOM`)
-            .setDescription(`➤ **Rank Bancho:** #${n.toLocaleString()} (${country}#${c.toLocaleString()}) \n➤ **Level:** ${user.statistics.level.current} + ${progress}.00% \n  ➤ **PP:** ${user.statistics.pp} | **Acc:** ${acc}% \n ➤ **PlayCount:** ${k.toLocaleString()} (${q.toLocaleString()}hrs) \n ➤ **Rankings:** ${stats}`)
+            .setDescription(`➤ **Rank Bancho:** #${n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} (${country}#${c.toLocaleString()}) \n➤ **Level:** ${user.statistics.level.current} + ${progress}.00% \n  ➤ **PP:** ${user.statistics.pp} | **Acc:** ${acc}% \n ➤ **PlayCount:** ${k.toLocaleString()} (${q.toLocaleString()}hrs) \n ➤ **Rankings:** ${stats}`)
             //.addField(`➤ Level:`, `${user.statistics.level.current}`, false)
             //.addField(`➤ Rank Bancho: `, `${n.toLocaleString()}`, false)
             //.addField(`➤ PP: `, `${user.statistics.pp}`, false)

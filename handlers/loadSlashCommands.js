@@ -20,5 +20,5 @@ module.exports = async (client) => {
     client.on("ready", async () => {
         await client.application.commands.set(arrayOfSlashCommands);
     });
-    console.log(`Đã load tất slashCommands`)
+    console.log(`[LOAD] Đã load tất slashCommands`)
 }
