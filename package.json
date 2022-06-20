@@ -17,7 +17,11 @@
     "libsodium-wrappers": "^0.7.10",
     "module-alias": "^2.2.2",
     "moment": "^2.29.3",
+<<<<<<< HEAD
     "mongodb": "^4.7.0",
+=======
+    "mongodb": "^4.6.0",
+>>>>>>> 2e2d5d3c6a60e5eb75421afe788d8888a24a5f41
     "osu-api-extended": "^2.1.5",
     "pnpm": "^7.2.1",
     "reconlx": "^2.5.6",
