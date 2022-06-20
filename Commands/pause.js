@@ -34,7 +34,7 @@ module.exports = {
         const queue = client.distube.getQueue(interaction)
     const ID = queue.songs[0].user.id
     if (interaction.user.id != ID) return loi('Bạn không phải người bật nhạc!')
-    if (!queue) return error(`Không có nhạc trong hàng chờ để sử dụng ${name}`)
+    if (!queue) return error(`Không có nhạc trong hàng chờ để sử dụng ${name}!`)
     if (!interaction.member.voice.channel) return error(`Bạn cần trong kênh voice để sử dụng lệnh này!`)
     if (queue.paused) return error(`Bài hát đang được dừng lại không cần dừng nữa!`)
     try {
