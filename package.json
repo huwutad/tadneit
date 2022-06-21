@@ -18,6 +18,7 @@
     "module-alias": "^2.2.2",
     "moment": "^2.29.3",
     "mongodb": "^4.6.0",
+    "mongoose": "^5.11.14",
     "osu-api-extended": "^2.1.5",
     "pnpm": "^7.2.1",
     "reconlx": "^2.5.6",

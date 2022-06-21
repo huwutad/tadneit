@@ -1,6 +1,8 @@
 const { MessageEmbed } = require('discord.js');
+const { v2, auth } = require('osu-api-extended')
+const { nguoidung } = require('../Events/dbSchema.js');
 require('dotenv').config
-const name  = 'osuset'
+const name = 'osuset'
 
 module.exports = {
     name: 'osuset',
@@ -15,24 +17,28 @@ module.exports = {
         }
     ],
     run: async (client, interaction, db) => {
-        const name = interaction.options.getString('name')
+        const newname = interaction.options.getString('name')
+        await interaction.deferReply()
         const id = interaction.user.id
-        let dbo = db.db("osu");
-        let obj = { name: name, _id: id};
-        //dbo.collection("user").find({}, { projection: { _id: id } }).toArray(function(err, result) {
-            //if (err) throw err;
-            //console.log(result);
-          //});xs
-          dbo.collection("user").updateOne(myquery, newvalues, function(err, res) {
-            if (err) throw err;
-            console.log("đã update");
-          });
-        dbo.collection("user").insertOne(obj , (err , result)=>{
-            if(err) throw err;
-            // console.log("Thêm thành công");
-            // console.log(result);
-            db.close();
-            });
-        interaction.reply({content: `**${interaction.user.username}, tên của bạn trên server \`Bancho\` đã được set là: \`_hUwUtao_\`**`})
+        const ten = await nguoidung.findById(id)
+        //console.log(ten)
+        if (!ten) {
+            await auth.login(process.env.OSUID, process.env.OSU)     
+            const search = await v2.search({mode: 'user', query: newname})
+            if (!newname || !search.user.data[0]) return interaction.reply({content: `\`Không thấy ${newname} trong Bancho server, set tên đúng đi :D\``, ephemeral: true})
+            new nguoidung({
+                _id: id,
+                name: newname,
+            }).save();
+        }
+        if (ten) {
+            await auth.login(process.env.OSUID, process.env.OSU)     
+            const search = await v2.search({mode: 'user', query: newname})
+            if (!newname || !search.user.data[0]) return interaction.reply({content: `\`Không thấy ${newname} trong Bancho server, set tên đúng đi :D\``, ephemeral: true})
+            await ten.update({
+                name: newname,
+            })
+        }
+        await interaction.editReply({ content: `**${interaction.user.username}, tên của bạn trên server \`Bancho\` đã được set là: \`${newname}\`**` })
     }
 }

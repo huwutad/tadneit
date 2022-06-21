@@ -2,7 +2,10 @@ const { Client, Intents, MessageEmbed, Collection } = require('discord.js');
 const Distube = require('distube')
 const {SoundCloudPlugin} = require('@distube/soundcloud')
 const {SpotifyPlugin} = require('@distube/spotify')
+const mongoose = require('mongoose');
+const db = require('./Events/dbLogin')
 require('dotenv').config();
+
 
 const client = new Client({
   intents: 32767
@@ -28,5 +31,5 @@ client.distube = new Distube.default(client, {
 	plugins: [new SoundCloudPlugin(), new SpotifyPlugin()],
 });
 require('./Events/Distube')(client);
-
+db();
 client.login(process.env.TOKEN)
