@@ -23,7 +23,7 @@ module.exports = {
         if (!id) {
             const ten = await nguoidung.findById(interaction.user.id)
             if (!ten) {
-                interaction.reply({ content: `Nhập tên hoặc id của người bạn muốn tìm hoặc tên của bạn, \nHoặc sử dụng \`/osuset\` để set tên bạn vào database! `, ephemeral: true })
+                interaction.editReply({ content: `Nhập tên hoặc id của người bạn muốn tìm hoặc tên của bạn, \nHoặc sử dụng \`/osuset\` để set tên bạn vào database! `, ephemeral: true })
                 return
             } else {
                 id = ten.name
@@ -52,7 +52,7 @@ module.exports = {
         const o = g * 100;
         const r = Math.round(o * 100) / 100
         const pp = Math.round(p * 100) / 100
-        if (!id || !search.user.data[0]) return interaction.reply({ content: `\`Không tim thấy ${id} 😉\``, ephemeral: true })
+        if (!id || !search.user.data[0]) return interaction.editReply({ content: `\`Không tim thấy ${id} 😉\``, ephemeral: true })
         if (top[0].pp == 'null') top[0].pp = `0.00`
         if (top[1].pp == 'null') top[1].pp = `0.00`
         if (top[2].pp == 'null') top[2].pp = `0.00`
