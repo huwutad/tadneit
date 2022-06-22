@@ -23,7 +23,7 @@ module.exports = {
         if (!id) {
             const ten = await nguoidung.findById(interaction.user.id)
             if (!ten) {
-                interaction.editReply({ content: `Nhập tên hoặc id của người bạn muốn tìm hoặc tên của bạn, \nHoặc sử dụng \`/osuset\` để set tên bạn vào database! `, ephemeral: true })
+                interaction.editReply({ content: `Không thấy dữ liệu trong database. Nhập tên hoặc id của người bạn muốn tìm hoặc tên của bạn, \nHoặc sử dụng \`/osuset\` để set tên bạn vào database! `, ephemeral: true })
                 return
             } else {
                 id = ten.name
