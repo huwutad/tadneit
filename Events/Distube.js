@@ -116,7 +116,11 @@ module.exports = async (client, interaction) => {
             const lomao = new MessageEmbed()
                 .setColor('RED')
                 .setDescription(`\`❌\` | ${error}`)
-            queue.textChannel.send({ embeds: [lomao] })
+            textChannel.send({ embeds: [lomao] })
+        }   
+        if (e.errorCode == 'VOICE_MISSING_PERMS') {
+            error(`Không thể tham gia voice vì thiếu perm \`VOICE_MISSING_PERMS\``)
+            return
         }
         error(`Đã xảy ra lỗi: ${e} \n Báo <@!${process.env.OWNER}> để được fix, cảm ơn ${process.env.LOVE}`)
     })
