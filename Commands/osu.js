@@ -23,7 +23,7 @@ module.exports = {
         if (!id) {
             const ten = await nguoidung.findById(interaction.user.id)
             if (!ten) {
-                interaction.reply({ content: `Nhập tên hoặc id của người bạn muốn tìm hoặc tên của bạn, \nHoặc sử dụng \`/osuset\` để set tên bạn vào database! `, ephemeral: true })
+                interaction.editReply({ content: `Nhập tên hoặc id của người bạn muốn tìm hoặc tên của bạn, \nHoặc sử dụng \`/osuset\` để set tên bạn vào database! `, ephemeral: true })
                 return
             } else {
                 id = ten.name
@@ -31,7 +31,7 @@ module.exports = {
         }
         await auth.login(process.env.OSUID, process.env.OSU)
         const search = await v2.search({ mode: 'user', query: id })
-        if (!id || !search.user.data[0]) return interaction.reply({ content: `\`Có vẻ như tui không tìm thấy người có tên ${id} 🤔\``, ephemeral: true })
+        if (!id || !search.user.data[0]) return interaction.editReply({ content: `\`Có vẻ như tui không tìm thấy người có tên ${id} 🤔\``, ephemeral: true })
         const user = await v2.user.get(search.user.data[0].id, 'osu')
         const mode = 'osu!standard'
         const t = Number(`${user.statistics.hit_accuracy}`)
