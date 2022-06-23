@@ -122,30 +122,30 @@ module.exports = {
             .setColor(`RANDOM`)
             .setThumbnail(top[0].user.avatar_url)
             //.setDescription(top.map((value, index) => { `${index + 1}. [${value.beatmapset.title} ${value.beatmap.version}](${value.beatmap.url}) +** ${value.mods}** [${value.beatmap.difficulty_rating}:star:] \n ➤ ${osuRank} ・ **${pp0}PP** ・${r}% \n ${value.score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${value.max_combo}/${await searchmap(value.beatmap.id)}・[${value.statistics.count_300}/${value.statistics.count_100}/${value.statistics.count_50}/${value.statistics.count_miss}]`}).join("\n"))
-        .setDescription(`**1. [${top[0].beatmapset.title} ${top[0].beatmap.version}](${top[0].beatmap.url}) +${top[0].mods}** [${top[0].beatmap.difficulty_rating}⭐] \n ➤ ${top[0].rank} ・ **${pp0}PP** ・${r}% \n ${q0.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[0].max_combo}/${searchmap0.max_combo}・[${top[0].statistics.count_300}/${top[0].statistics.count_100}/${top[0].statistics.count_50}/${top[0].statistics.count_miss}] \n**2. [${top[1].beatmapset.title} ${top[1].beatmap.version}](${top[1].beatmap.url}) +${top[1].mods}** [${top[1].beatmap.difficulty_rating}⭐] \n ➤ ${top[1].rank} ・ **${pp1}PP** ・${r}% \n ${q1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[1].max_combo}/${searchmap1.max_combo}・[${top[1].statistics.count_300}/${top[1].statistics.count_100}/${top[1].statistics.count_50}/${top[1].statistics.count_miss}] \n**3. [${top[2].beatmapset.title} ${top[2].beatmap.version}](${top[2].beatmap.url}) +${top[2].mods}** [${top[2].beatmap.difficulty_rating}⭐] \n ➤ ${top[2].rank} ・ **${pp2}PP** ・${r}% \n ${q2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[2].max_combo}/${searchmap2.max_combo}・[${top[2].statistics.count_300}/${top[2].statistics.count_100}/${top[2].statistics.count_50}/${top[2].statistics.count_miss}] \n **4. [${top[3].beatmapset.title} ${top[3].beatmap.version}](${top[3].beatmap.url}) +${top[3].mods}** [${top[3].beatmap.difficulty_rating}⭐] \n ➤ ${top[3].rank} ・ **${pp3}PP** ・${r}% \n ${q3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[3].max_combo}/${searchmap3.max_combo}・[${top[3].statistics.count_300}/${top[3].statistics.count_100}/${top[3].statistics.count_50}/${top[3].statistics.count_miss}] \n**5. [${top[4].beatmapset.title} ${top[4].beatmap.version}](${top[4].beatmap.url}) +${top[4].mods}** [${top[4].beatmap.difficulty_rating}⭐] \n ➤ ${top[4].rank} ・ **${pp4}PP** ・${r}% \n ${q4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[4].max_combo}/${searchmap4.max_combo}・[${top[4].statistics.count_300}/${top[4].statistics.count_100}/${top[4].statistics.count_50}/${top[4].statistics.count_miss}] \n`)
-        // .addFields(
-        //     {
-        //         name: '** **',
-        //         value: `**1. [${top[0].beatmapset.title} ${top[0].beatmap.version}](${top[0].beatmap.url}) +${top[0].mods}** [${top[0].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[0].max_combo}/${searchmap0.max_combo}・[${top[0].statistics.count_300}/${top[0].statistics.count_100}/${top[0].statistics.count_50}/${top[0].statistics.count_miss}]`,
-        //     },
-        //     {
-        //         name: '** **',
-        //         value: `**2. [${top[1].beatmapset.title} ${top[1].beatmap.version}](${top[1].beatmap.url}) +${top[0].mods}** [${top[1].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[1].max_combo}/${searchmap0.max_combo}・[${top[1].statistics.count_300}/${top[1].statistics.count_100}/${top[1].statistics.count_50}/${top[1].statistics.count_miss}]`,
-        //     },
-        //     {
-        //         name: '** **',
-        //         value: `**3. [${top[2].beatmapset.title} ${top[2].beatmap.version}](${top[2].beatmap.url}) +${top[0].mods}** [${top[2].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[2].max_combo}/${searchmap0.max_combo}・[${top[2].statistics.count_300}/${top[2].statistics.count_100}/${top[2].statistics.count_50}/${top[2].statistics.count_miss}]`,
-        //     },
-        //     {
-        //         name: '** **',
-        //         value: `**4. [${top[3].beatmapset.title} ${top[3].beatmap.version}](${top[3].beatmap.url}) +${top[0].mods}** [${top[3].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[3].max_combo}/${searchmap0.max_combo}・[${top[3].statistics.count_300}/${top[3].statistics.count_100}/${top[3].statistics.count_50}/${top[3].statistics.count_miss}]`,
-        //     },
-        //     {
-        //         name: '** **',
-        //         value: `**5. [${top[4].beatmapset.title} ${top[4].beatmap.version}](${top[4].beatmap.url}) +${top[0].mods}** [${top[4].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[4].max_combo}/${searchmap0.max_combo}・[${top[4].statistics.count_300}/${top[4].statistics.count_100}/${top[4].statistics.count_50}/${top[4].statistics.count_miss}]`,
-        //     },
-        // )
-        .setTimestamp()
+            .setDescription(`**1. [${top[0].beatmapset.title} ${top[0].beatmap.version}](${top[0].beatmap.url})** [${top[0].beatmap.difficulty_rating}⭐] \n ➤ Mods: ${top[0].mods} \n ➤ ${top[0].rank} ・ **${pp0}PP** ・${r}% \n ➤ ${q0.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[0].max_combo}/${searchmap0.max_combo}・[${top[0].statistics.count_300}/${top[0].statistics.count_100}/${top[0].statistics.count_50}/${top[0].statistics.count_miss}] \n**2. [${top[1].beatmapset.title} ${top[1].beatmap.version}](${top[1].beatmap.url}) ** [${top[1].beatmap.difficulty_rating}⭐] \n ➤ Mods: ${top[1].mods} \n ➤ ${top[1].rank} ・ **${pp1}PP** ・${r}% \n ➤ ${q1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[1].max_combo}/${searchmap1.max_combo}・[${top[1].statistics.count_300}/${top[1].statistics.count_100}/${top[1].statistics.count_50}/${top[1].statistics.count_miss}] \n**3. [${top[2].beatmapset.title} ${top[2].beatmap.version}](${top[2].beatmap.url}) ** [${top[2].beatmap.difficulty_rating}⭐] \n ➤ Mods: ${top[2].mods} \n ➤ ${top[2].rank} ・ **${pp2}PP** ・${r}% \n ➤ ${q2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[2].max_combo}/${searchmap2.max_combo}・[${top[2].statistics.count_300}/${top[2].statistics.count_100}/${top[2].statistics.count_50}/${top[2].statistics.count_miss}] \n **4. [${top[3].beatmapset.title} ${top[3].beatmap.version}](${top[3].beatmap.url}) ** [${top[3].beatmap.difficulty_rating}⭐] \n ➤ Mods: ${top[3].mods} \n ➤ ${top[3].rank} ・ **${pp3}PP** ・${r}% \n ➤ ${q3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[3].max_combo}/${searchmap3.max_combo}・[${top[3].statistics.count_300}/${top[3].statistics.count_100}/${top[3].statistics.count_50}/${top[3].statistics.count_miss}] \n**5. [${top[4].beatmapset.title} ${top[4].beatmap.version}](${top[4].beatmap.url}) ** [${top[4].beatmap.difficulty_rating}⭐] \n ➤ Mods: ${top[3].mods} \n ➤ ${top[4].rank} ・ **${pp4}PP** ・${r}% \n ➤ ${q4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[4].max_combo}/${searchmap4.max_combo}・[${top[4].statistics.count_300}/${top[4].statistics.count_100}/${top[4].statistics.count_50}/${top[4].statistics.count_miss}] \n`)
+            // .addFields(
+            //     {
+            //         name: '** **',
+            //         value: `**1. [${top[0].beatmapset.title} ${top[0].beatmap.version}](${top[0].beatmap.url}) +${top[0].mods}** [${top[0].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[0].max_combo}/${searchmap0.max_combo}・[${top[0].statistics.count_300}/${top[0].statistics.count_100}/${top[0].statistics.count_50}/${top[0].statistics.count_miss}]`,
+            //     },
+            //     {
+            //         name: '** **',
+            //         value: `**2. [${top[1].beatmapset.title} ${top[1].beatmap.version}](${top[1].beatmap.url}) +${top[0].mods}** [${top[1].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[1].max_combo}/${searchmap0.max_combo}・[${top[1].statistics.count_300}/${top[1].statistics.count_100}/${top[1].statistics.count_50}/${top[1].statistics.count_miss}]`,
+            //     },
+            //     {
+            //         name: '** **',
+            //         value: `**3. [${top[2].beatmapset.title} ${top[2].beatmap.version}](${top[2].beatmap.url}) +${top[0].mods}** [${top[2].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[2].max_combo}/${searchmap0.max_combo}・[${top[2].statistics.count_300}/${top[2].statistics.count_100}/${top[2].statistics.count_50}/${top[2].statistics.count_miss}]`,
+            //     },
+            //     {
+            //         name: '** **',
+            //         value: `**4. [${top[3].beatmapset.title} ${top[3].beatmap.version}](${top[3].beatmap.url}) +${top[0].mods}** [${top[3].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[3].max_combo}/${searchmap0.max_combo}・[${top[3].statistics.count_300}/${top[3].statistics.count_100}/${top[3].statistics.count_50}/${top[3].statistics.count_miss}]`,
+            //     },
+            //     {
+            //         name: '** **',
+            //         value: `**5. [${top[4].beatmapset.title} ${top[4].beatmap.version}](${top[4].beatmap.url}) +${top[0].mods}** [${top[4].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[4].max_combo}/${searchmap0.max_combo}・[${top[4].statistics.count_300}/${top[4].statistics.count_100}/${top[4].statistics.count_50}/${top[4].statistics.count_miss}]`,
+            //     },
+            // )
+            .setTimestamp()
         await interaction.editReply({ embeds: [osutopembed] })
         //console.log(top)
         //console.log(searchmap)
