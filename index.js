@@ -9,7 +9,8 @@ require('dotenv').config();
 
 
 const client = new Client({
-  intents: 32767
+  intents: 32767,
+  ws: { properties: { $browser: "Discord iOS"} }
 });
 module.exports = client;
 client.commands = new Collection();
