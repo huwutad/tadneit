@@ -20,7 +20,7 @@ module.exports = {
         const urlpng = user.displayAvatarURL({ format: 'png', size: 1024, dynamic: true })
         const urljpg = user.displayAvatarURL({ format: 'jpg', dynamic: true, size: 1024})
         const urlwebp = user.displayAvatarURL({ format: 'webp', dynamic: true, size: 1024}) 
-        const url = user.displayAvatarURL({ size: 1024, dynamic: true })
+        const url = user.displayAvatarURL({ format: 'png', size: 1024, dynamic: true })
         const avtembed = new MessageEmbed()
         .setColor(`RANDOM`)
         .setAuthor(`Ảnh đại diện của ${user.username}`,user.displayAvatarURL({dynamic: true}))
