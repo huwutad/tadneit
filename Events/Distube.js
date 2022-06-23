@@ -95,29 +95,35 @@ module.exports = async (client, interaction) => {
             huylomao()
         })
     client.distube.on('addSong', async (queue, song) => {
-        queue.textChannel.send(`Đã thêm **${song.name}** vào hàng chờ bởi ${song.user}`,)
+        const addsongembed = new MessageEmbed()
+            .setColor(`GREEN`)
+            .setDescription(`Đã thêm **${song.name}** vào hàng chờ bởi ${song.user}`)
+        queue.textChannel.send({ embeds: [addsongembed] })
         //setTimeout((addsong) => {
         //    d.delete()
         //}, 10000)
     })
     client.distube.on('addList', (queue, playlist, e) => {
-        function success(success) {
+        function error(error) {
             const drac = new MessageEmbed()
                 .setColor('RED')
-                .setDescription(`\`❌\` | ${success}`)
+                .setDescription(`\`❌\` | ${error}`)
             queue.textChannel.send({ embeds: [drac] })
         }
-        if (String(e).search('Error [PlayError]')) return success(`Không tìm thấy danh sách phát đó!`)
-        queue.textChannel.send(`Đã thêm danh sách phát **${playlist.name}** (${playlist.songs.length} bài hát) vào hàng chờ `,)
+        if (String(e).search('Error [PlayError]')) return error(`Không tìm thấy danh sách phát đó!`)
+        const addlistembed = new MessageEmbed()
+            .setColor(`GREEN`)
+            .setDescription(`Đã thêm danh sách phát **${playlist.name}** (${playlist.songs.length} bài hát) vào hàng chờ `)
+        queue.textChannel.send({ embeds: [addlistembed] })
     })
-    client.distube.on('error', ( textChannel, e) => {
+    client.distube.on('error', (textChannel, e) => {
         console.error(e)
         function error(error) {
             const lomao = new MessageEmbed()
                 .setColor('RED')
                 .setDescription(`\`❌\` | ${error}`)
             textChannel.send({ embeds: [lomao] })
-        }   
+        }
         if (e.errorCode == 'VOICE_MISSING_PERMS') {
             error(`Không thể tham gia voice vì thiếu perm \`VOICE_MISSING_PERMS\``)
             return
