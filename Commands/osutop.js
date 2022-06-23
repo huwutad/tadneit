@@ -46,12 +46,20 @@ module.exports = {
         if (top[0].rank == 'X') osuRank = process.env.X
         if (top[0].rank == 'SH') osuRank = process.env.SH
         if (top[0].rank == 'XH') osuRank = process.env.XH
-        const p = Number(`${top[0].pp}`)
+        const p0 = Number(`${top[0].pp}`)
+        const p1 = Number(`${top[1].pp}`)
+        const p2 = Number(`${top[2].pp}`)
+        const p3 = Number(`${top[3].pp}`)
+        const p4 = Number(`${top[4].pp}`)
         const g = Number(`${top[0].accuracy}`)
         const q = Number(`${top[0].score}`)
         const o = g * 100;
         const r = Math.round(o * 100) / 100
-        const pp = Math.round(p * 100) / 100
+        const pp0 = Math.round(p0 * 100) / 100
+        const pp1 = Math.round(p1 * 100) / 100
+        const pp2 = Math.round(p2 * 100) / 100
+        const pp3 = Math.round(p3 * 100) / 100
+        const pp4 = Math.round(p4 * 100) / 100
         if (!id || !search.user.data[0]) return interaction.editReply({ content: `\`Không tim thấy ${id} 😉\``, ephemeral: true })
         if (top[0].pp == 'null') top[0].pp = `0.00`
         if (top[1].pp == 'null') top[1].pp = `0.00`
@@ -67,7 +75,7 @@ module.exports = {
             .setAuthor(`Top 5 Score tốt nhất của ${top[0].user.username} trên osu!Standard`, 'https://cdn.discordapp.com/emojis/967444692369293313.webp?size=80&quality=lossless', `https://osu.ppy.sh/users/${top[0].id}`)
             .setColor(`RANDOM`)
             .setThumbnail(top[0].user.avatar_url)
-            .setDescription(`**1. [${top[0].beatmapset.title} ${top[0].beatmap.version}](${top[0].beatmap.url}) +${top[0].mods}** [${top[0].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[0].max_combo}/${searchmap0.max_combo}・[${top[0].statistics.count_300}/${top[0].statistics.count_100}/${top[0].statistics.count_50}/${top[0].statistics.count_miss}] \n**2. [${top[1].beatmapset.title} ${top[1].beatmap.version}](${top[1].beatmap.url}) +${top[0].mods}** [${top[1].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[1].max_combo}/${searchmap0.max_combo}・[${top[1].statistics.count_300}/${top[1].statistics.count_100}/${top[1].statistics.count_50}/${top[1].statistics.count_miss}] \n**3. [${top[2].beatmapset.title} ${top[2].beatmap.version}](${top[2].beatmap.url}) +${top[0].mods}** [${top[2].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[2].max_combo}/${searchmap0.max_combo}・[${top[2].statistics.count_300}/${top[2].statistics.count_100}/${top[2].statistics.count_50}/${top[2].statistics.count_miss}] \n **4. [${top[3].beatmapset.title} ${top[3].beatmap.version}](${top[3].beatmap.url}) +${top[0].mods}** [${top[3].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[3].max_combo}/${searchmap0.max_combo}・[${top[3].statistics.count_300}/${top[3].statistics.count_100}/${top[3].statistics.count_50}/${top[3].statistics.count_miss}] \n**5. [${top[4].beatmapset.title} ${top[4].beatmap.version}](${top[4].beatmap.url}) +${top[0].mods}** [${top[4].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[4].max_combo}/${searchmap0.max_combo}・[${top[4].statistics.count_300}/${top[4].statistics.count_100}/${top[4].statistics.count_50}/${top[4].statistics.count_miss}] \n`)
+            .setDescription(`**1. [${top[0].beatmapset.title} ${top[0].beatmap.version}](${top[0].beatmap.url}) +${top[0].mods}** [${top[0].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp0}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[0].max_combo}/${searchmap0.max_combo}・[${top[0].statistics.count_300}/${top[0].statistics.count_100}/${top[0].statistics.count_50}/${top[0].statistics.count_miss}] \n**2. [${top[1].beatmapset.title} ${top[1].beatmap.version}](${top[1].beatmap.url}) +${top[1].mods}** [${top[1].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp1}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[1].max_combo}/${searchmap0.max_combo}・[${top[1].statistics.count_300}/${top[1].statistics.count_100}/${top[1].statistics.count_50}/${top[1].statistics.count_miss}] \n**3. [${top[2].beatmapset.title} ${top[2].beatmap.version}](${top[2].beatmap.url}) +${top[2].mods}** [${top[2].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp2}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[2].max_combo}/${searchmap0.max_combo}・[${top[2].statistics.count_300}/${top[2].statistics.count_100}/${top[2].statistics.count_50}/${top[2].statistics.count_miss}] \n **4. [${top[3].beatmapset.title} ${top[3].beatmap.version}](${top[3].beatmap.url}) +${top[3].mods}** [${top[3].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp3}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[3].max_combo}/${searchmap0.max_combo}・[${top[3].statistics.count_300}/${top[3].statistics.count_100}/${top[3].statistics.count_50}/${top[3].statistics.count_miss}] \n**5. [${top[4].beatmapset.title} ${top[4].beatmap.version}](${top[4].beatmap.url}) +${top[4].mods}** [${top[4].beatmap.difficulty_rating}⭐] \n ➤ ${osuRank} ・ **${pp4}PP** ・${r}% \n ${q.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ・ x${top[4].max_combo}/${searchmap0.max_combo}・[${top[4].statistics.count_300}/${top[4].statistics.count_100}/${top[4].statistics.count_50}/${top[4].statistics.count_miss}] \n`)
             // .addFields(
             //     {
             //         name: '** **',
