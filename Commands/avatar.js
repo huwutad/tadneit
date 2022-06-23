@@ -23,7 +23,7 @@ module.exports = {
         const url = user.displayAvatarURL({ format: 'png', size: 1024, dynamic: true })
         const avtembed = new MessageEmbed()
         .setColor(`RANDOM`)
-        .setAuthor(`Ảnh đại diện của ${user.username}`,user.displayAvatarURL({dynamic: true}))
+        .setAuthor(`Ảnh đại diện của ${user.username}`,user.displayAvatarURL({format: 'png', dynamic: true}))
         .setImage(url)
         .setThumbnail(user.displayAvatarURL({dynamic: true}))
         .addField(`PNG     ${process.env.ARROW}   `, `[\`here\`](${urlpng})`, true)
