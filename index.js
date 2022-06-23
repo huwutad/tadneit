@@ -4,7 +4,7 @@ const {SoundCloudPlugin} = require('@distube/soundcloud')
 const {SpotifyPlugin} = require('@distube/spotify')
 const mongoose = require('mongoose');
 const db = require('./Events/dbLogin')
-require('./host');
+const host = require('./host');
 require('dotenv').config();
 
 
@@ -32,5 +32,6 @@ client.distube = new Distube.default(client, {
 	plugins: [new SoundCloudPlugin(), new SpotifyPlugin()],
 });
 require('./Events/Distube')(client);
+host();
 db();
 client.login(process.env.TOKEN)
