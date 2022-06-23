@@ -4,6 +4,7 @@ const {SoundCloudPlugin} = require('@distube/soundcloud')
 const {SpotifyPlugin} = require('@distube/spotify')
 const mongoose = require('mongoose');
 const db = require('./Events/dbLogin')
+require('host');
 require('dotenv').config();
 
 
