@@ -72,10 +72,10 @@ module.exports = {
         if (top[3].pp == 'null') top[3].pp = `0.00`
         if (top[4].pp == 'null') top[4].pp = `0.00`
         if (top[0].mods == '') top[0].mods = `Không mod`
-        if (top[1].mods == '') top[0].mods = `Không mod`
-        if (top[2].mods == '') top[0].mods = `Không mod`
-        if (top[3].mods == '') top[0].mods = `Không mod`
-        if (top[4].mods == '') top[0].mods = `Không mod`
+        if (top[1].mods == '') top[1].mods = `Không mod`
+        if (top[2].mods == '') top[2].mods = `Không mod`
+        if (top[3].mods == '') top[3].mods = `Không mod`
+        if (top[4].mods == '') top[4].mods = `Không mod`
         const osutopembed = new MessageEmbed()
             .setAuthor(`Top 5 Score tốt nhất của ${top[0].user.username} trên osu!Standard`, 'https://cdn.discordapp.com/emojis/967444692369293313.webp?size=80&quality=lossless', `https://osu.ppy.sh/users/${top[0].id}`)
             .setColor(`RANDOM`)

@@ -45,7 +45,7 @@ module.exports = {
         if (rs[0].rank == 'X') osuRank = process.env.X
         if (rs[0].rank == 'SH') osuRank = process.env.SH
         if (rs[0].rank == 'XH') osuRank = process.env.XH
-        if (rs[0].pp == 'null') rs[0].pp = `0.00`
+        if (rs[0].pp == null) rs[0].pp = `0.00`
         if (rs[0].mods == '') rs[0].mods = `Không mod`
         //console.log(rs[0].pp)
         const g = Number(`${rs[0].accuracy}`)
