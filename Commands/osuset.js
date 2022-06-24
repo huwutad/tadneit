@@ -7,7 +7,7 @@ const name = 'osuset'
 module.exports = {
     name: 'osuset',
     category: 'Osu',
-    description: 'Set tên osu! của bạn! 🎶',
+    description: 'Set tên osu! của bạn vào database! 🎶',
     options: [
         {
             name: 'name',

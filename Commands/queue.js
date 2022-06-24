@@ -4,7 +4,7 @@ const name = 'queue'
 module.exports = {
     name: 'queue',
     category: 'Music',
-    description: 'Xem nhạc trong hàng chờ!',
+    description: 'Xem nhạc trong hàng chờ! 🏁',
     run: async (client, interaction, args, distube) => {
         console.log(`[USED] ${interaction.user.username} đã sử dụng ${name}`)
         try {

@@ -5,7 +5,7 @@ const name = 'whois'
 require('dotenv').config
 module.exports = {
     name: 'whois',
-    description: 'Xem thông tin của ai đó',
+    description: 'Xem thông tin của ai đó! 📨',
     options: [
         {
             name: 'name',
