@@ -32,6 +32,7 @@ module.exports = {
         await auth.login(process.env.OSUID, process.env.OSU)
         const search = await v2.search({ mode: 'user', query: id })
         const top = await v2.scores.users.best(search.user.data[0].id, 'osu')
+        if (id = Number) return interaction.editReply({ content: `\`Có vẻ như tui không tìm thấy người có tên ${id} 🤔\``, ephemeral: true })
         const mode = 'osu!standard'
         const searchmap0 = await v2.beatmap.get(top[0].beatmap.id);
         const searchmap1 = await v2.beatmap.get(top[1].beatmap.id);
