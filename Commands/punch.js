@@ -1,15 +1,15 @@
 const { MessageEmbed } = require('discord.js')
 const Anime_Images = require('anime-images-api')
 const API = new Anime_Images()
-const name =  'hug'
+const name = 'punch'
 
 module.exports = {
-    name: 'hug',
-    description: 'Ôm người khác :D 🤗',
+    name: 'punch',
+    description: 'Đấm người khác :D 👊',
     options: [
         {
             name: 'user',
-            description: 'Người bạn muốn ôm',
+            description: 'Người bạn muốn đấm',
             type: 'USER',
             required: true,
         }
@@ -17,32 +17,32 @@ module.exports = {
     run: async (client, interaction) => {
         console.log(`[USED] ${interaction.user.username} đã sử dụng ${name}`)
         await interaction.deferReply();
-        let { image } = await API.sfw.hug()
+        let { image } = await API.sfw.punch()
         const user = interaction.options.getUser('user')
         //console.log(image)
         if (user.id == client.user.id) {
-            const hugembed1 = new MessageEmbed()
+            const punchembed1 = new MessageEmbed()
                 .setColor(`FF00C5`)
-                .setDescription(`<@!${interaction.user.id}> đã ôm <@!${client.user.id}>! Wait what 😳`)
+                .setDescription(`<@!${interaction.user.id}> đã đấm <@!${client.user.id}>! Wait what 💀`)
                 .setImage(image)
                 .setTimestamp()
-            await interaction.editReply({ embeds: [hugembed1] })
+            await interaction.editReply({ embeds: [punchembed1] })
             return
         }
-        if (user.id == user.id) {
-            const hugembed2 = new MessageEmbed()
+        if (interaction.user.id == user.id) {
+            const punchembed2 = new MessageEmbed()
                 .setColor(`FF00C5`)
-                .setDescription(`<@!${interaction.user.id}> đã ôm <@!${client.user.id}>! Ơ nhưng mà....tại sao? 🤔`)
+                .setDescription(`<@!${interaction.user.id}> đã đấm <@!${user.id}>! Ơ nhưng mà....tại sao? 🤔`)
                 .setImage(image)
                 .setTimestamp()
-            await interaction.editReply({ embeds: [hugembed2] })
+            await interaction.editReply({ embeds: [punchembed2] })
             return
         }
-        const hugembed = new MessageEmbed()
+        const punchembed = new MessageEmbed()
             .setColor(`FF00C5`)
-        hugembed.setDescription(`<@!${interaction.user.id}> đã ôm <@!${user.id}> 🤗`)
+        punchembed.setDescription(`<@!${interaction.user.id}> đã đấm <@!${user.id}> 👊`)
             .setImage(image)
             .setTimestamp()
-        await interaction.editReply({ embeds: [hugembed] })
+        await interaction.editReply({ embeds: [punchembed] })
     }
 }

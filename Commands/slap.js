@@ -1,15 +1,15 @@
 const { MessageEmbed } = require('discord.js')
 const Anime_Images = require('anime-images-api')
 const API = new Anime_Images()
-const name =  'hug'
+const name = 'slap'
 
 module.exports = {
-    name: 'hug',
-    description: 'Ôm người khác :D 🤗',
+    name: 'slap',
+    description: 'Tát người khác :D 🤚',
     options: [
         {
             name: 'user',
-            description: 'Người bạn muốn ôm',
+            description: 'Người bạn muốn tát',
             type: 'USER',
             required: true,
         }
@@ -17,32 +17,32 @@ module.exports = {
     run: async (client, interaction) => {
         console.log(`[USED] ${interaction.user.username} đã sử dụng ${name}`)
         await interaction.deferReply();
-        let { image } = await API.sfw.hug()
+        let { image } = await API.sfw.slap()
         const user = interaction.options.getUser('user')
         //console.log(image)
         if (user.id == client.user.id) {
-            const hugembed1 = new MessageEmbed()
+            const slapembed1 = new MessageEmbed()
                 .setColor(`FF00C5`)
-                .setDescription(`<@!${interaction.user.id}> đã ôm <@!${client.user.id}>! Wait what 😳`)
+                .setDescription(`<@!${interaction.user.id}> đã tát <@!${client.user.id}>! Wait what 💀`)
                 .setImage(image)
                 .setTimestamp()
-            await interaction.editReply({ embeds: [hugembed1] })
+            await interaction.editReply({ embeds: [slapembed1] })
             return
         }
-        if (user.id == user.id) {
-            const hugembed2 = new MessageEmbed()
+        if (interaction.user.id == user.id) {
+            const slapembed2 = new MessageEmbed()
                 .setColor(`FF00C5`)
-                .setDescription(`<@!${interaction.user.id}> đã ôm <@!${client.user.id}>! Ơ nhưng mà....tại sao? 🤔`)
+                .setDescription(`<@!${interaction.user.id}> đã tát <@!${user.id}>! Ơ nhưng mà....tại sao? 🤔`)
                 .setImage(image)
                 .setTimestamp()
-            await interaction.editReply({ embeds: [hugembed2] })
+            await interaction.editReply({ embeds: [slapembed2] })
             return
         }
-        const hugembed = new MessageEmbed()
+        const slapembed = new MessageEmbed()
             .setColor(`FF00C5`)
-        hugembed.setDescription(`<@!${interaction.user.id}> đã ôm <@!${user.id}> 🤗`)
+        slapembed.setDescription(`<@!${interaction.user.id}> đã tát <@!${user.id}> 🤚`)
             .setImage(image)
             .setTimestamp()
-        await interaction.editReply({ embeds: [hugembed] })
+        await interaction.editReply({ embeds: [slapembed] })
     }
 }

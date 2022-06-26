@@ -30,6 +30,11 @@ module.exports = {
                                 label: 'Lệnh Osu! ( Osu! )',
                                 description: 'Các lệnh về osu!',
                                 value: 'third_option',
+                            },
+                            {
+                                label: 'Lệnh hành động ( Actions )',
+                                description: 'Các lệnh về hành động',
+                                value: 'fourth_option',
                             }
                         ]),
                 );
@@ -125,6 +130,29 @@ module.exports = {
                             value: '> Xem score osu! của bạn gần nhất! 🎶',
                         },
                     )
+                interaction.reply({ embeds: [embed], ephemeral: true })
+            }
+            if (interaction.value[0] == 'fourth_option') {
+                const embed = new MessageEmbed()
+                .setTitle(`Lệnh hành động ( Actions )`)
+                .addFields(
+                    {
+                        name: '**Hug**',
+                        value: '> Ôm người khác :D 🤗'
+                    },
+                    {
+                        name: '**Kiss**',
+                        value: '> Hôn người khác :D 😚'
+                    },
+                    {
+                        name: '**Punch**',
+                        value: '> Đấm người khác :D 👊',
+                    },
+                    {
+                        name: '**Slap**',
+                        value: 'Tát người khác :D 🤚'
+                    }
+                )
                 interaction.reply({ embeds: [embed], ephemeral: true })
             }
 
