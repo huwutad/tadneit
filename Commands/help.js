@@ -59,6 +59,10 @@ module.exports = {
                     .setTitle('Lệnh tiện ích ( Utilities )')
                     .addFields(
                         {
+                            name: '**Anime**',
+                            value: "> Tìm bộ anime mà bạn mong muốn! 🔍",
+                        },
+                        {
                             name: `**Avatar:**`,
                             value: '> Xem avatar của người khác! 📷',
                         },
