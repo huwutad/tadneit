@@ -20,10 +20,10 @@ module.exports = {
         let { image } = await API.sfw.kiss()
         const user = interaction.options.getUser('user')
         //console.log(image)
-        if (user.id == client.user.id) {
+        if (interaction.user.id == client.user.id) {
             const kissembed1 = new MessageEmbed()
                 .setColor(`FF00C5`)
-                .setDescription(`<@!${interaction.user.id}> đã hôn <@!${client.user.id}>! Wait what 😳`)
+                .setDescription(`<@!${interaction.user.id}> đã hôn <@!${user.id}>! Wait what 😳`)
                 .setImage(image)
                 .setTimestamp()
             await interaction.editReply({ embeds: [kissembed1] })

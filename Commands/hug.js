@@ -29,10 +29,10 @@ module.exports = {
             await interaction.editReply({ embeds: [hugembed1] })
             return
         }
-        if (user.id == user.id) {
+        if (interaction.user.id == user.id) {
             const hugembed2 = new MessageEmbed()
                 .setColor(`FF00C5`)
-                .setDescription(`<@!${interaction.user.id}> đã ôm <@!${client.user.id}>! Ơ nhưng mà....tại sao? 🤔`)
+                .setDescription(`<@!${interaction.user.id}> đã ôm <@!${user.id}>! Ơ nhưng mà....tại sao? 🤔`)
                 .setImage(image)
                 .setTimestamp()
             await interaction.editReply({ embeds: [hugembed2] })
