@@ -132,7 +132,7 @@ module.exports = {
                     )
                 interaction.reply({ embeds: [embed], ephemeral: true })
             }
-            if (interaction.value[0] == 'fourth_option') {
+            if (interaction.values[0] == 'fourth_option') {
                 const embed = new MessageEmbed()
                 .setTitle(`Lệnh hành động ( Actions )`)
                 .addFields(

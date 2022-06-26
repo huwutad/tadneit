@@ -13,7 +13,7 @@ const client = new Client({
   ws: { properties: { $browser: "Discord iOS"} }
 });
 module.exports = client;
-client.commands = new Collection();
+///client.commands = new Collection();
 client.aliases = new Collection();
 client.events = new Collection();
 client.interaction = new Collection();
