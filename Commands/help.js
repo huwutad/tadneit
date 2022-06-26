@@ -150,7 +150,7 @@ module.exports = {
                     },
                     {
                         name: '**Slap**',
-                        value: 'Tát người khác :D 🤚'
+                        value: '> Tát người khác :D 🤚'
                     }
                 )
                 interaction.reply({ embeds: [embed], ephemeral: true })
