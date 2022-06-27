@@ -32,7 +32,6 @@ module.exports = {
         await auth.login(process.env.OSUID, process.env.OSU)
         const search = await v2.search({ mode: 'user', query: id })
         if (!id || !search.user.data[0]) return interaction.editReply({ content: `\`Có vẻ như tui không tìm thấy người có tên ${id} 🤔\``, ephemeral: true })
-        if (id = Number) return interaction.editReply({ content: `\`Có vẻ như tui không tìm thấy người có tên ${id} 🤔\``, ephemeral: true })
         const user = await v2.user.get(search.user.data[0].id, 'osu')
         const mode = 'osu!standard'
         const t = Number(`${user.statistics.hit_accuracy}`)
