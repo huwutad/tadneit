@@ -1,7 +1,7 @@
 const { Client, Intents, MessageEmbed, Collection } = require('discord.js');
 const Distube = require('distube')
-const {SoundCloudPlugin} = require('@distube/soundcloud')
-const {SpotifyPlugin} = require('@distube/spotify')
+const { SoundCloudPlugin } = require('@distube/soundcloud')
+const { SpotifyPlugin } = require('@distube/spotify')
 const mongoose = require('mongoose');
 const db = require('./Events/dbLogin')
 const host = require('./host');
@@ -9,8 +9,8 @@ require('dotenv').config();
 
 
 const client = new Client({
-  intents: 32767,
-  ws: { properties: { $browser: "Discord iOS"} }
+	intents: 32767,
+	ws: { properties: { $browser: "Discord iOS" } }
 });
 module.exports = client;
 ///client.commands = new Collection();
@@ -20,9 +20,20 @@ client.interaction = new Collection();
 client.slashCommands = new Collection();
 
 ['loadEvents.js', 'loadSlashCommands.js'].forEach(handler => { //'loadCommands.js'
-  require(`./handlers/${handler}`)(client);
+	require(`./handlers/${handler}`)(client);
 })
-
+function error(error) {
+	const lomao = new MessageEmbed()
+		.setColor('RED')
+		.setDescription(`\`🚫\`| ${error}`)
+	interaction.editReply({ embeds: [lomao], ephemeral: true })
+}
+function success(success) {
+	const thanhcong = new MessageEmbed()
+		.setColor('GREEN')
+		.setDescription(`\`✅\` | ${success}`)
+	interaction.editReply({ embeds: [thanhcong], ephemeral: true })
+}
 client.distube = new Distube.default(client, {
 	searchSongs: 5,
 	searchCooldown: 30,
