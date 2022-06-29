@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js")
 const name = 'loop queue'
 
 module.exports = {
-    name: 'loopQueue',
+    name: 'loopqueue',
     description: 'Tắt lặp lại cho bài đang hát!',
     run: async (client, interaction) => {
         function error(error) {

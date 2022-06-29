@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js")
 const name = 'loop song'
 
 module.exports = {
-    name: 'loopSong',
+    name: 'loopsong',
     description: 'Bật lặp lại cho một bài đang phát hiện tại',
     run: async (client, interaction) => {
         function error(error) {
