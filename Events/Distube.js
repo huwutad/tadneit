@@ -4,8 +4,8 @@ module.exports = async (client, interaction) => {
         `Âm lượng: \`${queue.volume}%\` | Filter: \`${queue.filters.join(', ') || 'Tắt❌'
         }\` | Lặp lại: \`${queue.repeatMode
             ? queue.repeatMode === 2
-                ? 'Tất cả bài nhạc!'
-                : 'Một bài nhạc!'
+                ? 'Hàng chờ 🎼'
+                : 'Một bài 🎶'
             : 'Tắt❌'
         }\` | Tự động phát: \`${queue.autoplay ? 'Bật✅' : 'Tắt❌'}\``
     async function error(error) {

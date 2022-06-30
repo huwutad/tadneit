@@ -29,6 +29,7 @@ module.exports = {
                 id = ten.name
             }
         }
+        if (!id || !search.user.data[0]) return interaction.editReply({ content: `\`Không tim thấy ${id} 😉\``, ephemeral: true })
         await auth.login(process.env.OSUID, process.env.OSU)
         const search = await v2.search({ mode: 'user', query: id })
         const top = await v2.scores.users.best(search.user.data[0].id, 'osu')
@@ -106,7 +107,6 @@ module.exports = {
         const pp2 = Math.round(p2 * 100) / 100
         const pp3 = Math.round(p3 * 100) / 100
         const pp4 = Math.round(p4 * 100) / 100
-        if (!id || !search.user.data[0]) return interaction.editReply({ content: `\`Không tim thấy ${id} 😉\``, ephemeral: true })
         if (top[0].pp == 'null') top[0].pp = `0.00`
         if (top[1].pp == 'null') top[1].pp = `0.00`
         if (top[2].pp == 'null') top[2].pp = `0.00`
