@@ -29,9 +29,9 @@ module.exports = {
                 id = ten.name
             }
         }
-        if (!id || !search.user.data[0]) return interaction.editReply({ content: `\`Không tim thấy ${id} 😉\``, ephemeral: true })
         await auth.login(process.env.OSUID, process.env.OSU)
         const search = await v2.search({ mode: 'user', query: id })
+        if (!id || !search.user.data[0]) return interaction.editReply({ content: `\`Không tim thấy ${id} 😉\``, ephemeral: true })
         const top = await v2.scores.users.best(search.user.data[0].id, 'osu')
         const mode = 'osu!standard'
         const searchmap0 = await v2.beatmap.get(top[0].beatmap.id);
