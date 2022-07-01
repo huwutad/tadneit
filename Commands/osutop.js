@@ -37,11 +37,6 @@ module.exports = {
         } else {
             const top = await v2.scores.users.best(search.user.data[0].id, 'osu')
             const mode = 'osu!standard'
-            const searchmap0 = await v2.beatmap.get(top[0].beatmap.id);
-            const searchmap1 = await v2.beatmap.get(top[1].beatmap.id);
-            const searchmap2 = await v2.beatmap.get(top[2].beatmap.id);
-            const searchmap3 = await v2.beatmap.get(top[3].beatmap.id);
-            const searchmap4 = await v2.beatmap.get(top[4].beatmap.id);
             // A 
             if (top[0].rank == 'A') top[0].rank = process.env.A
             if (top[1].rank == 'A') top[1].rank = process.env.A
@@ -120,6 +115,11 @@ module.exports = {
             if (top[2].mods == '') top[2].mods = `Không mod`
             if (top[3].mods == '') top[3].mods = `Không mod`
             if (top[4].mods == '') top[4].mods = `Không mod`
+            const searchmap0 = await v2.beatmap.get(top[0].beatmap.id);
+            const searchmap1 = await v2.beatmap.get(top[1].beatmap.id);
+            const searchmap2 = await v2.beatmap.get(top[2].beatmap.id);
+            const searchmap3 = await v2.beatmap.get(top[3].beatmap.id);
+            const searchmap4 = await v2.beatmap.get(top[4].beatmap.id);
             const osutopembed = new MessageEmbed()
                 .setAuthor(`Top 5 Score tốt nhất của ${top[0].user.username} trên osu!Standard`, 'https://cdn.discordapp.com/emojis/967444692369293313.webp?size=80&quality=lossless', `https://osu.ppy.sh/users/${top[0].id}`)
                 .setColor(`RANDOM`)
