@@ -21,10 +21,10 @@ module.exports = {
             const lomao = new MessageEmbed()
                 .setColor('RED')
                 .setDescription(`\`🚫\`| ${error}`)
-            interaction.editReply({ embeds: [lomao], ephemeral: true })
+            interaction.reply({ embeds: [lomao], ephemeral: true })
         }
         console.log(`[USED] ${interaction.user.username} đã sử dụng ${name}`)
-        await interaction.deferReply();
+        // await interaction.deferReply();
         try {
             let id = interaction.options.getString('name');
             if (!id) {
@@ -41,7 +41,8 @@ module.exports = {
             if (!id || !search.user.data[0]) {
                 interaction.editReply({ content: `\`Không tim thấy ${id} 😉\``, ephemeral: true })
                 return
-            } else {
+            }
+            if (id || search.user.data[0]) {
                 const top = await v2.scores.users.best(search.user.data[0].id, 'osu')
                 const mode = 'osu!standard'
                 // A 
@@ -156,7 +157,7 @@ module.exports = {
                     //     },
                     // )
                     .setTimestamp()
-                await interaction.editReply({ embeds: [osutopembed] })
+                await interaction.reply({ embeds: [osutopembed] })
                 //console.log(top)
                 //console.log(searchmap) 
             }
