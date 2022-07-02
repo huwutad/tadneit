@@ -3,6 +3,12 @@ const { v2, auth } = require('osu-api-extended');
 const { nguoidung } = require('../Events/dbSchema')
 require('dotenv').config
 const name = 'osutop'
+function error(error) {
+    const lomao = new MessageEmbed()
+    .setColor('RED')
+    .setDescription(`\`🚫\`| ${error}`)
+    interaction.reply({embeds: [lomao], ephemeral: true})
+}
 
 module.exports = {
     name: 'osutop',
