@@ -3,12 +3,6 @@ const { v2, auth } = require('osu-api-extended');
 const { nguoidung } = require('../Events/dbSchema')
 require('dotenv').config
 const name = 'osutop'
-function error(error) {
-    const lomao = new MessageEmbed()
-    .setColor('RED')
-    .setDescription(`\`🚫\`| ${error}`)
-    await interaction.editReply({embeds: [lomao], ephemeral: true})
-}
 
 module.exports = {
     name: 'osutop',
@@ -22,7 +16,13 @@ module.exports = {
             required: false,
         }
     ],
-    run: async (client, interaction, array) => {
+    run: async (client, interaction) => {
+        function error(error) {
+            const lomao = new MessageEmbed()
+                .setColor('RED')
+                .setDescription(`\`🚫\`| ${error}`)
+            await interaction.editReply({ embeds: [lomao], ephemeral: true })
+        }
         console.log(`[USED] ${interaction.user.username} đã sử dụng ${name}`)
         await interaction.deferReply();
         try {
