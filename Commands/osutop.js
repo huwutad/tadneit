@@ -21,7 +21,7 @@ module.exports = {
             const lomao = new MessageEmbed()
                 .setColor('RED')
                 .setDescription(`\`🚫\`| ${error}`)
-            await interaction.editReply({ embeds: [lomao], ephemeral: true })
+            interaction.editReply({ embeds: [lomao], ephemeral: true })
         }
         console.log(`[USED] ${interaction.user.username} đã sử dụng ${name}`)
         await interaction.deferReply();
@@ -163,7 +163,7 @@ module.exports = {
         } catch (e) {
             console.error(e)
             console.log(e)
-            error(`Đã xảy ra lỗi: ${e} \n Báo <@!${process.env.OWNER}> để được fix, cảm ơn ${process.env.LOVE}`)
+            await error(`Đã xảy ra lỗi: ${e} \n Báo <@!${process.env.OWNER}> để được fix, cảm ơn ${process.env.LOVE}`)
         }
     }
 }
