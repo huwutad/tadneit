@@ -7,7 +7,7 @@ function error(error) {
     const lomao = new MessageEmbed()
     .setColor('RED')
     .setDescription(`\`🚫\`| ${error}`)
-    interaction.editReply({embeds: [lomao], ephemeral: true})
+    await interaction.editReply({embeds: [lomao], ephemeral: true})
 }
 
 module.exports = {
