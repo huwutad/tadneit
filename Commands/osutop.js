@@ -38,12 +38,14 @@ module.exports = {
             }
             await auth.login(process.env.OSUID, process.env.OSU)
             const search = await v2.search({ mode: 'user', query: id })
+            const top = await v2.scores.users.best(search.user.data[0].id, 'osu')
             if (!id || !search.user.data[0]) {
                 interaction.editReply({ content: `\`Không tim thấy ${id} 😉\``, ephemeral: true })
                 return
             }
-            if (id || search.user.data[0]) {
-                const top = await v2.scores.users.best(search.user.data[0].id, 'osu')
+            if (top == '[]') {
+                interaction.reply(`${id} không được tìm thấy hoặc không có đủ lượt chơi!`)
+            } else {
                 const mode = 'osu!standard'
                 // A 
                 if (top[0].rank == 'A') top[0].rank = process.env.A
@@ -163,7 +165,6 @@ module.exports = {
             }
         } catch (e) {
             console.error(e)
-            console.log(e)
             await error(`Đã xảy ra lỗi: ${e} \n Báo <@!${process.env.OWNER}> để được fix, cảm ơn ${process.env.LOVE}`)
         }
     }
