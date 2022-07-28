@@ -40,26 +40,27 @@ module.exports = {
             const search = await v2.search({ mode: 'user', query: id })
             const top = await v2.scores.users.best(search.user.data[0].id, 'osu')
             if (!id || !search.user.data[0]) {
-                interaction.editReply({ content: `\`Không tim thấy ${id} 😉\``, ephemeral: true })
+                interaction.editReply({ content: `\`Không tim thấy ${id} 😓\``, ephemeral: true })
                 return
             }
-            if (top == '[]') {
-                interaction.reply(`${id} không được tìm thấy hoặc không có đủ lượt chơi!`)
+            if (top.length === []) {
+                //console.log(top)
+                interaction.reply({ content: `${id} không được tìm thấy hoặc không có đủ lượt chơi!`, ephemeral: true   })
             } else {
                 const mode = 'osu!standard'
-                // A 
+                // A
                 if (top[0].rank == 'A') top[0].rank = process.env.A
                 if (top[1].rank == 'A') top[1].rank = process.env.A
                 if (top[2].rank == 'A') top[2].rank = process.env.A
                 if (top[3].rank == 'A') top[3].rank = process.env.A
                 if (top[4].rank == 'A') top[4].rank = process.env.A
-                // B 
+                // B
                 if (top[0].rank == 'B') top[0].rank = process.env.B
                 if (top[1].rank == 'B') top[1].rank = process.env.B
                 if (top[2].rank == 'B') top[2].rank = process.env.B
                 if (top[3].rank == 'B') top[3].rank = process.env.B
                 if (top[4].rank == 'B') top[4].rank = process.env.B
-                // C 
+                // C
                 if (top[0].rank == 'C') top[0].rank = process.env.C
                 if (top[1].rank == 'C') top[1].rank = process.env.C
                 if (top[2].rank == 'C') top[2].rank = process.env.C
@@ -95,12 +96,13 @@ module.exports = {
                 if (top[2].rank == 'XH') top[2].rank = process.env.XH
                 if (top[3].rank == 'XH') top[3].rank = process.env.XH
                 if (top[4].rank == 'XH') top[4].rank = process.env.XH
-
+                //pp
                 const p0 = Number(`${top[0].pp}`)
                 const p1 = Number(`${top[1].pp}`)
                 const p2 = Number(`${top[2].pp}`)
                 const p3 = Number(`${top[3].pp}`)
                 const p4 = Number(`${top[4].pp}`)
+                //accuracy
                 const g = Number(`${top[0].accuracy}`)
                 // score
                 const q0 = Number(`${top[0].score}`)
