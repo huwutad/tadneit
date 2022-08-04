@@ -36,7 +36,7 @@ module.exports = {
         } catch (e) {
             console.error(e)
             console.log(e)
-            error('Đã có lỗi ở đâu đó hãy báo với hUwUtao#2022 để được fix, cảm ơn <:worry_love:974259906913902602> ')
+            error(`Đã xảy ra lỗi: ${e} \n Báo <@!${process.env.OWNER}> để được fix, cảm ơn ${process.env.LOVE}`)
         }
     }
 }
