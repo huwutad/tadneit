@@ -81,7 +81,7 @@ module.exports = async (client, interaction) => {
                         .setAuthor(`Bài hát đang được phát......`, 'https://c.tenor.com/sce9SDRey4EAAAAi/disc.gif')
                         .setDescription(`${status(queue)}`)
                         .setThumbnail(song.thumbnail)
-                        .addField(`Thời lượng ⏲:`, `${song.formattedDuration}`)
+                        .addField(`Thời lượng ⏲:`, `\`${song.formattedDuration}\``)
                         .addField('Người đăng tải 🤘:', `[${song.uploader.name}](${song.uploader.url})`, true)
                         .addField('Lượt xem 👀:', `\`${song.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}\``, true)
                         .addField('Lượt thích 👍:', `\`${song.likes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}\``, true)
